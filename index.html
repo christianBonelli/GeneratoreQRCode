@@ -8,6 +8,16 @@
     <style></style>
 </head>
 <body>
+    <nav>
+
+    </nav>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome"><br><br>
+    <label for="cognome">Cognome: </label>
+    <input type="text" id="cognome" name="cognome"><br><br>
+    <label for="numeroTelefono">Numero Telefono:</label>
+    <input type="tel" id="numeroTelefono" name="numeroTelefono"><br><br>
     <label for="coordinate">Coordinate Bancarie:</label>
     <input type="text" id="coordinate" name="coordinate"><br><br>
 
@@ -19,9 +29,18 @@
     <script>
         // Funzione per generare il QR code
         function generateQRCode() {
+            var nome = document.getElementById('nome').value;
+            var cognome = document.getElementById('cognome').value;
+            var numeroTelefono = document.getElementById('numeroTelefono').value;
             var coordinateBancarie = document.getElementById('coordinate').value;
+            
+            var qrData = "Nome: " + nome + "\n" +
+                 "Cognome: " + cognome + "\n" +
+                 "Numero Telefono: " + numeroTelefono + "\n" +
+                 "IBAN: " + coordinateBancarie;
+    
             var qr = qrcode(0, 'M'); // Crea un nuovo oggetto QRCode
-            qr.addData(coordinateBancarie); // Aggiunge i dati al QR code
+            qr.addData(qrData); // Aggiunge i dati al QR code
             qr.make(); // Genera il QR code
 
             // Ottieni l'elemento HTML in cui inserire il QR code
@@ -29,7 +48,15 @@
 
             // Aggiungi il QR code all'elemento HTML
             qrCodeElement.innerHTML = qr.createSvgTag();
+
+            // Mostra i dati con le relative etichette accanto al QR code
+            qrCodeElement.innerHTML += "<br><br>" +
+                "Nome: " + nome + "<br>" +
+                "Cognome: " + cognome + "<br>" +
+                "Numero Telefono: " + numeroTelefono + "<br>" +
+                "IBAN: " + coordinateBancarie;
         }
+    
 
         // Funzione per scaricare il QR code come immagine SVG
         function downloadQRCode() {
