@@ -1,0 +1,56 @@
+/* Stile per il QR code */
+#qrcode {
+    margin-top: 20px;
+}
+
+/* Stile per i label */
+label {
+    margin-bottom: 5px;
+}
+
+/* Stile per i campi di input */
+input[type="text"],
+input[type="tel"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Stile per i bottoni */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Stile per il contenitore dei bottoni */
+button-container {
+    display: flex;
+}
+
+/* Stile per il bottone "Genera QR Code" */
+button:first-child {
+    margin-right: 10px;
+}
+
+/* Stile per il bottone "Scarica QR Code" */
+button:last-child {
+    background-color: #28a745;
+}
+
+/* Stile per i bottoni al passaggio del mouse */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Stile per i bottoni attivi */
+button:active {
+    background-color: #0056b3;
+    transform: translateY(1px);
+}
