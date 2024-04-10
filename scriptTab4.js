@@ -1,40 +1,20 @@
-function generateQRCode() {
-    var nome = document.getElementById('nome').value;
-    var cognome = document.getElementById('cognome').value;
-    var email = document.getElementById('email').value;
-    var telefono = document.getElementById('telefono').value;
-    var via = document.getElementById('via').value;
-    var cap = document.getElementById('cap').value;
-    var citta = document.getElementById('citta').value;
-    var regione = document.getElementById('regione').value;
-    var paese = document.getElementById('paese').value;
-    var note = document.getElementById('note').value;
+function generateQRCode4() {
+    var ssid = document.getElementById('ssid').value;
+    var password = document.getElementById('password').value;
+    var encryption = document.getElementById('encryption').value;
+
+    var wifiData = "WIFI:S:" + ssid + ";T:" + encryption + ";P:" + password + ";;";
     
-    var qrData = "Informazioni personali:\n" +
-                 "Nome: " + nome + "\n" +
-                 "Cognome: " + cognome + "\n" +
-                 "Email: " + email + "\n" +
-                 "Telefono: " + telefono + "\n" +
-                 "Via: " + via + "\n" +
-                 "CAP: " + cap + "\n" +
-                 "Città: " + citta + "\n" +
-                 "Regione: " + regione + "\n" +
-                 "Paese: " + paese + "\n" +
-                 "Note: " + note;
+    var qr = qrcode(0, 'M');
+    qr.addData(wifiData);
+    qr.make();
 
-    var qr = qrcode(0, 'M'); // Crea un nuovo oggetto QRCode
-    qr.addData(qrData); // Aggiunge i dati al QR code
-    qr.make(); // Genera il QR code
-
-    // Ottieni l'elemento HTML in cui inserire il QR code
-    var qrCodeElement = document.getElementById('qrcode');
-
-    // Aggiungi il QR code all'elemento HTML
-    qrCodeElement.innerHTML = qr.createSvgTag();
+    var qrCodeElement = document.getElementById('qrcode4');
+    qrCodeElement.innerHTML = qr.createImgTag();
 }
 
 // Funzione per scaricare il QR code come immagine SVG
-function downloadQRCode() {
+function downloadQRCode4() {
     var qrCodeElement = document.getElementById('qrcode');
     var svgData = qrCodeElement.innerHTML;
     var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });

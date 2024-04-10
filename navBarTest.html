@@ -8,18 +8,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cssIndex.css">
 </head>
 <body>
     <!-- Navbar -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#tab1">Tab 1</a>
+            <a class="nav-link active" data-toggle="tab" href="#tab1">Me Card</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#tab2">Tab 2</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tab3">Tab 3</a>
+            <a class="nav-link" data-toggle="tab" href="#tab3">URL</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tab4">Wi-Fi</a>
         </li>
     </ul>
 
@@ -27,16 +31,37 @@
     <div class="tab-content">
         <!-- Tab 1 -->
         <div id="tab1" class="tab-pane fade show active">
-            <h3>Tab 1</h3>
+            <h3>Crea una Card con i tuoi dettagli</h3>
             <div class="form-continer">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome"><br><br>
+                <input type="text" id="nome" ><br><br>
+
                 <label for="cognome">Cognome: </label>
                 <input type="text" id="cognome" name="cognome"><br><br>
-                <label for="numeroTelefono">Numero Telefono:</label>
-                <input type="tel" id="numeroTelefono" name="numeroTelefono"><br><br>
-                <label for="coordinate">Coordinate Bancarie:</label>
-                <input type="text" id="coordinate" name="coordinate"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="telefono">Telefono:</label>
+                <input type="tel" id="telefono" name="telefono"><br><br>
+
+                <label for="via">Via:</label>
+                <input type="text" id="via" name="via"><br><br>
+
+                <label for="cap">CAP:</label>
+                <input type="number" id="cap" name="cap"><br><br>
+
+                <label for="citta">Città:</label>
+                <input type="text" id="citta" name="citta"><br><br>
+
+                <label for="regione">Regione:</label>
+                <input type="text" id="regione" name="regione"><br><br>
+
+                <label for="paese">Paese:</label>
+                <input type="text" id="paese" name="paese"><br><br>
+
+                <label for="note">Note:</label>
+                <input type="text" id="note" name="note"><br><br>
             
                 <button onclick="generateQRCode()">Genera QR Code</button>
                 <button onclick="downloadQRCode()">Scarica QR Code</button>
@@ -75,6 +100,21 @@
                 <div id="qrcode3"></div>
                 </div>  
         </div>
+        <div id="tab4" class="tab-pane fade">
+            <h3>Inserisci i dati del WIFI</h3>
+            <div class="form-continer">
+                <label for="ssid">Inserisci il nome del WIFI(SSID): </label>
+                <input type="text" id="ssid" name="ssid"><br><br>
+                <label for="password">Inserisci la password: </label>
+                <input type="text" id="password" name="password"><br><br>
+                <label for="encryption">Inserisci la crittografia: </label>
+                <input type="text" id="encryption" name="encryption"><br><br>
+                <button onclick="generateQRCode4()">Genera QR Code</button>
+                <button onclick="downloadQRCode4()">Scarica QR Code</button>
+            
+                <div id="qrcode4"></div>
+                </div>  
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -82,5 +122,6 @@
     <script src="scriptTab1.js"></script>
     <script src="scriptTab2.js"></script>
     <script src="scriptTab3.js"></script>
+    <script src="scriptTab4.js"></script>
 </body>
 </html>
