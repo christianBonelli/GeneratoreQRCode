@@ -25,6 +25,9 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#tab4">Wi-Fi</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tab5">SMS</a>
+        </li>
     </ul>
 
     <!-- Contenuto dei tab -->
@@ -107,12 +110,23 @@
                 <input type="text" id="ssid" name="ssid"><br><br>
                 <label for="password">Inserisci la password: </label>
                 <input type="text" id="password" name="password"><br><br>
-                <label for="encryption">Inserisci la crittografia: </label>
-                <input type="text" id="encryption" name="encryption"><br><br>
                 <button onclick="generateQRCode4()">Genera QR Code</button>
                 <button onclick="downloadQRCode4()">Scarica QR Code</button>
             
                 <div id="qrcode4"></div>
+                </div>  
+        </div>
+        <div id="tab5" class="tab-pane fade">
+            <h3>Inserisci i dati</h3>
+            <div class="form-continer">
+                <label for="numero">Inserisci il numero di telefono a cui vuoi mandare un messaggio: </label>
+                <input type="text" id="numero" name="numero"><br><br>
+                <label for="testo">Inserisci il testo del messggio: </label>
+                <input type="text" id="testo" name="testo"><br><br>
+                <button onclick="generateQRCode5()">Genera QR Code</button>
+                <button onclick="downloadQRCode5()">Scarica QR Code</button>
+            
+                <div id="qrcode5"></div>
                 </div>  
         </div>
     </div>
@@ -123,5 +137,6 @@
     <script src="scriptTab2.js"></script>
     <script src="scriptTab3.js"></script>
     <script src="scriptTab4.js"></script>
+    <script src="scriptTab5.js"></script>
 </body>
 </html>

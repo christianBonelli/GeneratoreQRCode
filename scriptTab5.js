@@ -1,19 +1,23 @@
-function generateQRCode4() {
-    var ssid = document.getElementById('ssid').value;
-    var password = document.getElementById('password').value;
+function generateQRCode5() {
+    var telefono = document.getElementById('numero').value;
+    var testo = document.getElementById('testo').value;
 
-    var wifiData = "WIFI:T:WPA;S:" + ssid + ";P:" + password + ";;";
-
+    var numeroTelefono = "+39" + telefono;
+    var qrData = "smsto:" + encodeURIComponent(numeroTelefono) + ":" + decodeURIComponent(testo);
     var qr = qrcode(0, 'M');
-    qr.addData(wifiData);
-    qr.make();
+    qr.addData(qrData); 
+    qr.make(); // Genera il QR code
+    var qrCodeElement = document.getElementById('qrcode5');
 
-    var qrCodeElement = document.getElementById('qrcode4');
-    qrCodeElement.innerHTML = qr.createImgTag();
+    var telefono = document.getElementById('numero').value = "";
+    var testo = document.getElementById('testo').value = "";
+    // Aggiungi il QR code all'elemento HTML
+    qrCodeElement.innerHTML = qr.createSvgTag();
 }
 
+
 // Funzione per scaricare il QR code come immagine SVG
-function downloadQRCode4() {
+function downloadQRCode5() {
     var qrCodeElement = document.getElementById('qrcode');
     var svgData = qrCodeElement.innerHTML;
     var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
