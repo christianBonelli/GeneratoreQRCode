@@ -3,7 +3,7 @@ function generateQRCode2() {
     var bic = document.getElementById('bic').value;
     var iban = document.getElementById('iban').value;
     var sede = document.getElementById('sede').value;
-    var qr = qrcode(0, 'M'); // Crea un nuovo oggetto QRCode
+    var qr = qrcode(0, 'M'); 
     qr.addData(nomeCognome + "\n" + bic + "\n" + iban + "\n" + sede); 
     qr.make();
     console.log("Sono in qr code 2");
@@ -17,7 +17,7 @@ function generateQRCode2() {
     qrCodeElement.innerHTML = qr.createSvgTag();
 }
 
-// Funzione per scaricare il QR code come immagine SVG
+
 function downloadQRCode2() {
     var qrCodeElement = document.getElementById('qrcode2');
     var svgData = qrCodeElement.innerHTML;
@@ -25,37 +25,37 @@ function downloadQRCode2() {
     var url = URL.createObjectURL(blob);
     var downloadLink = document.createElement('a');
     downloadLink.href = url;
-    downloadLink.download = 'qrcode.svg'; // Nome del file da scaricare
+    downloadLink.download = 'qrcode.svg';
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
     convertiSVGaJPEG2();
 }
-// Funzione per convertire un'immagine SVG in un'immagine JPEG
+
 function convertiSVGaJPEG2() {
 var svg = document.getElementById('qrcode2').querySelector('svg');
 
 // Crea un canvas
 var canvas = document.createElement('canvas');
-canvas.width = 400; // Larghezza desiderata
-canvas.height = 400; // Altezza desiderata
+canvas.width = 400; 
+canvas.height = 400; 
 
-// Crea un oggetto SVG in base64
+
 var svgData = new XMLSerializer().serializeToString(svg);
 var svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
 var url = URL.createObjectURL(svgBlob);
 
-// Carica l'immagine SVG sul canvas
+
 var ctx = canvas.getContext('2d');
 var img = new Image();
 img.onload = function() {
-    ctx.drawImage(img, 0, 0, 400, 400); // Disegna l'immagine sul canvas con le dimensioni desiderate
-    // Converti il canvas in un'immagine JPEG
-    var jpegData = canvas.toDataURL('image/jpeg', 1.0); // Qualità 1.0
-    // Crea un link per il download dell'immagine JPEG
+    ctx.drawImage(img, 0, 0, 400, 400); 
+  
+    var jpegData = canvas.toDataURL('image/jpeg', 1.0); 
+  
     var downloadLink = document.createElement('a');
     downloadLink.href = jpegData;
-    downloadLink.download = 'qrcode.jpg'; // Nome del file da scaricare
+    downloadLink.download = 'qrcode.jpg'; 
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
