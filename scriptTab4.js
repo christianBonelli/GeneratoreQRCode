@@ -10,12 +10,15 @@ function generateQRCode4() {
     qr.make();
 
     var qrCodeElement = document.getElementById('qrcode4');
+
+    var ssid = document.getElementById('ssid').value = "";
+    var password = document.getElementById('password').value = "";
     qrCodeElement.innerHTML = qr.createImgTag();
 }
 
 // Funzione per scaricare il QR code come immagine SVG
 function downloadQRCode4() {
-    var qrCodeElement = document.getElementById('qrcode');
+    var qrCodeElement = document.getElementById('qrcode4');
     var svgData = qrCodeElement.innerHTML;
     var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
     var url = URL.createObjectURL(blob);
@@ -25,11 +28,11 @@ function downloadQRCode4() {
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
-    convertiSVGaJPEG();
+    convertiSVGaJPEG4();
 }
 // Funzione per convertire un'immagine SVG in un'immagine JPEG
-function convertiSVGaJPEG() {
-var svg = document.getElementById('qrcode').querySelector('svg');
+function convertiSVGaJPEG4() {
+var svg = document.getElementById('qrcode4').querySelector('svg');
 
 // Crea un canvas
 var canvas = document.createElement('canvas');

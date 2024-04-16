@@ -19,7 +19,7 @@ function generateQRCode5() {
 
 // Funzione per scaricare il QR code come immagine SVG
 function downloadQRCode5() {
-    var qrCodeElement = document.getElementById('qrcode');
+    var qrCodeElement = document.getElementById('qrcode5');
     var svgData = qrCodeElement.innerHTML;
     var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
     var url = URL.createObjectURL(blob);
@@ -29,11 +29,11 @@ function downloadQRCode5() {
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
-    convertiSVGaJPEG();
+    convertiSVGaJPEG5();
 }
 // Funzione per convertire un'immagine SVG in un'immagine JPEG
-function convertiSVGaJPEG() {
-var svg = document.getElementById('qrcode').querySelector('svg');
+function convertiSVGaJPEG5() {
+var svg = document.getElementById('qrcode5').querySelector('svg');
 
 // Crea un canvas
 var canvas = document.createElement('canvas');
