@@ -1,3 +1,4 @@
+//SCRIPT PER IL TAB WIFI
 function generateQRCode4() {
     var ssid = document.getElementById('ssid').value;
     var password = document.getElementById('password').value;

@@ -1,3 +1,4 @@
+    //SCRIPT PER SMS
 function generateQRCode5() {
     var telefono = document.getElementById('numero').value;
     var testo = document.getElementById('testo').value;
