@@ -29,7 +29,19 @@ function generateQRCode() {
     // Ottieni l'elemento HTML in cui inserire il QR code
     var qrCodeElement = document.getElementById('qrcode');
 
-    // Aggiungi il QR code all'elemento HTML
+    
+    var nome = document.getElementById('nome').value = "";
+    var cognome = document.getElementById('cognome').value = "";
+    var email = document.getElementById('email').value = "";
+    var telefono = document.getElementById('telefono').value = "";
+    var via = document.getElementById('via').value = "";
+    var cap = document.getElementById('cap').value = "";
+    var citta = document.getElementById('citta').value = "";
+    var regione = document.getElementById('regione').value = "";
+    var paese = document.getElementById('paese').value = "";
+    var note = document.getElementById('note').value = "";
+    
+
     qrCodeElement.innerHTML = qr.createSvgTag();
 }
 

@@ -1,22 +1,25 @@
 function generateQRCode2() {
-    var nome = document.getElementById('nome2').value;
-    var cognome = document.getElementById('cognome2').value;
-    var numeroTelefono = document.getElementById('numeroTelefono2').value;
-    var coordinateBancarie = document.getElementById('coordinate2').value;
+    var nomeCognome = document.getElementById('nomeCognome').value;
+    var bic = document.getElementById('bic').value;
+    var iban = document.getElementById('iban').value;
+    var sede = document.getElementById('sede').value;
     var qr = qrcode(0, 'M'); // Crea un nuovo oggetto QRCode
-    qr.addData(nome + "\n" + cognome + "\n" + numeroTelefono + "\n" + coordinateBancarie); // Aggiunge i dati al QR code
-    qr.make(); // Genera il QR code
-     //console.log("Sono dentro qua in tab 2");
-    // Ottieni l'elemento HTML in cui inserire il QR code
+    qr.addData(nomeCognome + "\n" + bic + "\n" + iban + "\n" + sede); 
+    qr.make();
+    console.log("Sono in qr code 2");
     var qrCodeElement = document.getElementById('qrcode2');
 
-    // Aggiungi il QR code all'elemento HTML
+    var nomeCognome = document.getElementById('nomeCognome').value = "";
+    var bic = document.getElementById('bic').value = "";
+    var iban = document.getElementById('iban').value = "";
+    var sede = document.getElementById('sede').value = "";
+
     qrCodeElement.innerHTML = qr.createSvgTag();
 }
 
 // Funzione per scaricare il QR code come immagine SVG
 function downloadQRCode2() {
-    var qrCodeElement = document.getElementById('qrcode');
+    var qrCodeElement = document.getElementById('qrcode2');
     var svgData = qrCodeElement.innerHTML;
     var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
     var url = URL.createObjectURL(blob);
@@ -26,11 +29,11 @@ function downloadQRCode2() {
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
-    convertiSVGaJPEG();
+    convertiSVGaJPEG2();
 }
 // Funzione per convertire un'immagine SVG in un'immagine JPEG
-function convertiSVGaJPEG() {
-var svg = document.getElementById('qrcode').querySelector('svg');
+function convertiSVGaJPEG2() {
+var svg = document.getElementById('qrcode2').querySelector('svg');
 
 // Crea un canvas
 var canvas = document.createElement('canvas');
